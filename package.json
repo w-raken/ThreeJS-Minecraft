@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/electron.js",
   "scripts": {
-    "dev": "webpack && concurrently \"webpack-dev-server --port=4200\" \"electron . --dev\" ",
+    "dev": "webpack && concurrently \"webpack-dev-server --port=4200\"",
     "prod": "webpack && electron .",
     "build": "webpack",
     "start": "electron ."

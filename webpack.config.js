@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const exec = require('child_process').exec;
 
 const indexConfig = {
     template: './index.html',
@@ -8,6 +9,17 @@ const indexConfig = {
 
 module.exports = {
     devtool: 'eval-source-map',
+    devServer: {
+        after() {
+            exec('electron . --dev',
+                function(error) {
+                    if(error !== null) {
+                        console.log('error : ' + error);
+                    }
+                }
+            );
+        }
+    },
     entry: {
         'electron': './electron',
         'app': './app/main.ts'
