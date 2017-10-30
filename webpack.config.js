@@ -11,13 +11,7 @@ module.exports = {
     devtool: 'eval-source-map',
     devServer: {
         after() {
-            exec('electron . --dev',
-                function(error) {
-                    if(error !== null) {
-                        console.log('error : ' + error);
-                    }
-                }
-            );
+            exec('electron . --dev');
         }
     },
     entry: {
