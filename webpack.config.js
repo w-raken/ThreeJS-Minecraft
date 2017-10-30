@@ -1,6 +1,8 @@
+const dev = process.env.NODE_ENV === "dev";
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 const exec = require('child_process').exec;
+const uglifyJs = require('uglifyjs-webpack-plugin')
 
 const indexConfig = {
     template: './index.html',
@@ -8,7 +10,7 @@ const indexConfig = {
 };
 
 module.exports = {
-    devtool: 'eval-source-map',
+    devtool: dev ? 'eval-cheap-module-source-map' : false,
     devServer: {
         after() {
             exec('electron . --dev');
@@ -41,5 +43,8 @@ module.exports = {
     node: {
         __dirname: false
     },
-    plugins: [new HtmlWebpackPlugin(indexConfig)]
+    plugins: [
+        new htmlWebpackPlugin(indexConfig),
+        new uglifyJs()
+    ]
 };

@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/electron.js",
   "scripts": {
-    "dev": "webpack && concurrently \"webpack-dev-server --port=4200\"",
+    "dev": "NODE_ENV=dev webpack && concurrently \"webpack-dev-server --port=4200\"",
     "prod": "webpack && electron .",
     "build": "webpack",
     "start": "electron ."
@@ -16,6 +16,7 @@
     "html-webpack-plugin": "^2.30.1",
     "ts-loader": "^3.1.0",
     "typescript": "^2.5.3",
+    "uglifyjs-webpack-plugin": "^1.0.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3"
   },
