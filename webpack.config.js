@@ -63,7 +63,7 @@ let webpackConfig = {
 
 // UglifyJs only for prod
 if(!dev) {
-    config.plugins.push(new uglifyJs());
+    webpackConfig.plugins.push(new uglifyJs());
 }
 
 // Export the config
