@@ -1,7 +1,7 @@
 <p align="center"> 
-  <img src="https://i.imgur.com/nyI7a4t.png" width="400">
-  <img src="https://i.imgur.com/9SpTCrn.png" width="400">
-  <img src="https://i.imgur.com/GKlHOaj.png" width="400">
+  <img src="https://i.imgur.com/nyI7a4t.png" width="170" style="margin-right:50px">
+  <img src="https://i.imgur.com/9SpTCrn.png" width="200">
+  <img src="https://i.imgur.com/GKlHOaj.png" width="200" style="margin-right:40px">
 </p>
 
 
