@@ -4,23 +4,24 @@
 
 <hr>
 
-> A simple kit for [Electron](https://electron.atom.io), [Angular 4](https://angular.io) and [Webpack 3](https://webpack.js.org).
+> A simple kit for [Electron](https://electron.atom.io), [Angular 4](https://angular.io) and [Webpack 3](https://webpack.js.org) including a live reload system for Angular.
 
-### Quick start
-**Be sure to have Node version> = 6.0 and NPM> = 3 installed on your computer/server**
+# Quick start
+### Be sure to have Node version> = 6.0 and NPM> = 3 installed on your computer/server
 
-Clone via ssh :
+**Clone via ssh :**
 ```bash
 git clone git@github.com:lbassin/Electron_Angular.git
 ```
 
-Or clone via https :
+**Or clone via https :**
 ```bash
 git clone https://github.com/lbassin/Electron_Angular.git
 ```
 
-Next, install and run the project :
+**Next, install and run the project :**
 ```bash
+cd Electron_Angular
 npm install
 
 # dev mode (live reload)
