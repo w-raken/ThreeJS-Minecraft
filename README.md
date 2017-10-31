@@ -5,6 +5,7 @@
 <hr>
 
 > A simple kit for [Electron](https://electron.atom.io), [Angular 4](https://angular.io) and [Webpack 3](https://webpack.js.org) including a live reload system for Angular.
+
 > The boilerplate also include loaders for [TypeScript](https://www.typescriptlang.org/) and [Sass](http://sass-lang.com/).
 
 # Quick start
