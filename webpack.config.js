@@ -2,14 +2,14 @@ const dev = process.env.NODE_ENV === "dev";
 const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const exec = require('child_process').exec;
-const uglifyJs = require('uglifyjs-webpack-plugin')
+const uglifyJs = require('uglifyjs-webpack-plugin');
 
 const indexConfig = {
     template: './index.html',
     excludeChunks: ['electron']
 };
 
-module.exports = {
+let webpackConfig = {
     // How source maps are generated : style of source mapping
     devtool: dev ? 'eval-cheap-module-source-map' : false,
     // Development server configuration 
@@ -57,7 +57,14 @@ module.exports = {
     },
     // Customize the webpack build process with additionals plugins
     plugins: [
-        new htmlWebpackPlugin(indexConfig),
-        new uglifyJs()
+        new htmlWebpackPlugin(indexConfig)
     ]
 };
+
+// UglifyJs only for prod
+if(!dev) {
+    config.plugins.push(new uglifyJs());
+}
+
+// Export the config
+module.exports = webpackConfig;
