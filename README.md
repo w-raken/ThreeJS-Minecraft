@@ -7,7 +7,7 @@
 > A simple kit for [Electron](https://electron.atom.io), [Angular 4](https://angular.io) and [Webpack 3](https://webpack.js.org).
 
 ### Quick start
-**Be sure you have Node version> = 6.0 and NPM> = 3 installed on your computer/server**
+**Be sure to have Node version> = 6.0 and NPM> = 3 installed on your computer/server**
 
 Clone via ssh :
 ```bash
