@@ -12,6 +12,11 @@
 
 <hr>
 
+<p align="center">
+  <h1>Angular4 - Electron - Webpack2</h1>
+  <h2>with live reload</h2>
+</p>
+
 # Angular in electron with live reload
 
 ```
