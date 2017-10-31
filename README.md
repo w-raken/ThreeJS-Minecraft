@@ -1,21 +1,22 @@
 <p align="center">
-  <span style="margin-right:50px;">
+  <span style="margin-right:50px">
     <img src="https://i.imgur.com/nyI7a4t.png" width="170">
   </span>
   <span>
     <img src="https://i.imgur.com/9SpTCrn.png" width="200">
   </span>
-  <span style="margin-left:40px;">
+  <span style="margin-left:40px">
     <img src="https://i.imgur.com/GKlHOaj.png" width="200">
   </span>
 </p>
 
-<hr>
 
 <p align="center">
-  <h1>Angular4 - Electron - Webpack2</h1>
-  <h2>with live reload</h2>
+  <h1 style="text-align: -webkit-center;border-bottom: none;">Angular4 - Electron - Webpack2</h1>
+  <h2 style="text-align: -webkit-center;border-bottom: none;margin-top: -1em;">with live reload</h2>
 </p>
+
+<hr>
 
 # Angular in electron with live reload
 
