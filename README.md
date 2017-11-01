@@ -17,7 +17,7 @@ git clone git@github.com:lbassin/Electron_Angular.git
 # or clone via https
 git clone https://github.com/lbassin/Electron_Angular.git
 
-# change directory to our repo
+# change directory to the app
 cd Electron_Angular
 
 # install dependencies with npm
@@ -27,7 +27,7 @@ npm install
 |Command|Description|
 |--|--|
 |`npm run dev`| Execute the app with a live reload system and source mapping |
-|`npm run prod`| Builds the app with css/js optimizations and minifications |
+|`npm run prod`| Build the app with css/js optimizations and minifications |
 |`npm run packager:win`| Soon |
 |`npm run packager:mac`| Soon |
 |`npm run packager:linux`| Soon |
@@ -36,9 +36,9 @@ npm install
 |`npm run installer:linux`| Soon |
 
 ## Contributors
-| [![Laurent BASSSIN](https://avatars2.githubusercontent.com/u/11029822?s=115&v=4)](https://github.com/lbassin) | [![Maxime MARQUET](https://avatars0.githubusercontent.com/u/12535829?s=115&v=4)](https://github.com/x-Raz) |
+| [![Laurent BASSIN](https://avatars2.githubusercontent.com/u/11029822?s=115&v=4)](https://github.com/lbassin) | [![Maxime MARQUET](https://avatars0.githubusercontent.com/u/12535829?s=115&v=4)](https://github.com/x-Raz) |
 | :--:|:--: |
-| [Laurent BASSSIN](https://github.com/lbassin) | [Maxime MARQUET](https://github.com/x-Raz) |
+| [Laurent BASSIN](https://github.com/lbassin) | [Maxime MARQUET](https://github.com/x-Raz) |
 
 ## License
-MIT © [Laurent BASSSIN](https://github.com/lbassin) & [Maxime MARQUET](https://github.com/x-Raz)
+MIT © [Laurent BASSIN](https://github.com/lbassin) & [Maxime MARQUET](https://github.com/x-Raz)
