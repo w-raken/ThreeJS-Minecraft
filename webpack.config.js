@@ -38,6 +38,11 @@ let webpackConfig = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 loaders: ['raw-loader', 'sass-loader']
+            },
+            {
+                test: /\.html$/,
+                exclude: /node_modules/,
+                loaders: ['raw-loader']
             }
         ]
     },
