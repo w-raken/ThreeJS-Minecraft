@@ -35,11 +35,13 @@ let webpackConfig = {
                 exclude: /node_modules/
             },
             {
+                // All files with a '.scss' extension will be handled by sass-loader
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 loaders: ['raw-loader', 'sass-loader']
             },
             {
+                // All files with a '.html' extension will be injected as they are with raw-loader
                 test: /\.html$/,
                 exclude: /node_modules/,
                 loaders: ['raw-loader']
