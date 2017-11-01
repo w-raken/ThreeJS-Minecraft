@@ -38,13 +38,30 @@ let webpackConfig = {
                 // All files with a '.scss' extension will be handled by sass-loader
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                loaders: ['raw-loader', 'sass-loader']
+                loaders: ['raw-loader', 'sass-loader', 'resolve-url-loader']
             },
             {
                 // All files with a '.html' extension will be injected as they are with raw-loader
                 test: /\.html$/,
                 exclude: /node_modules/,
                 loaders: ['raw-loader']
+            },
+            {
+                // All images and fonts will be optimized and their paths will be solved
+                enforce: 'pre',
+                test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)(\?.*)?$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            name: '[name].[hash:10].[ext]'
+                        }
+                    },
+                    {
+                        loader: 'img-loader'
+                    }
+                ],
+                exclude: /node_modules/
             }
         ]
     },
