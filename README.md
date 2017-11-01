@@ -31,9 +31,9 @@ npm install
 |`npm run packager:win`| Soon |
 |`npm run packager:mac`| Soon |
 |`npm run packager:linux`| Soon |
+|`npm run installer:win`| Soon |
 |`npm run installer:mac`| Soon |
-|`npm run installer:mac`| Soon |
-|`npm run installer:mac`| Soon |
+|`npm run installer:linux`| Soon |
 
 ## Contributors
 | [![Laurent BASSSIN](https://avatars2.githubusercontent.com/u/11029822?s=115&v=4)](https://github.com/lbassin) | [![Maxime MARQUET](https://avatars0.githubusercontent.com/u/12535829?s=115&v=4)](https://github.com/x-Raz) |
