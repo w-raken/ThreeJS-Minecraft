@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-    selector: 'pokemon-app',
+    selector: 'angular-app',
     template: require('./app.component.html'),
     styles: [require('./app.component.scss')],
 })
