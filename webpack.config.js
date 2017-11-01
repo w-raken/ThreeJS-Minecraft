@@ -38,7 +38,7 @@ let webpackConfig = {
                 // All files with a '.scss' extension will be handled by sass-loader
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                loaders: ['raw-loader', 'sass-loader']
+                loaders: ['to-string-loader', 'css-loader', 'resolve-url-loader', 'sass-loader']
             },
             {
                 // All files with a '.html' extension will be injected as they are with raw-loader
@@ -54,7 +54,8 @@ let webpackConfig = {
                     {
                         loader: 'url-loader',
                         options: {
-                            name: '[name].[hash:10].[ext]'
+                            name: '[name].[hash:10].[ext]',
+                            limit: 8192
                         }
                     },
                     {
