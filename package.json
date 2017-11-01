@@ -1,7 +1,8 @@
 {
-  "name": "axolo",
+  "name": "Electron_Angular",
   "version": "1.0.0",
-  "description": "",
+  "description": "A simple kit for Electron, Angular 4 and Webpack 3 including a live reload system for Angular.",
+  "repository": "https://github.com/lbassin/Electron_Angular",
   "main": "dist/electron.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev webpack && concurrently \"webpack-dev-server --port=4200\"",
@@ -9,8 +10,8 @@
     "build": "webpack",
     "start": "electron ."
   },
-  "author": "",
-  "license": "ISC",
+  "author": "BASSIN Laurent & MARQUET Maxime",
+  "license": "MIT",
   "devDependencies": {
     "concurrently": "^3.5.0",
     "cross-env": "^5.1.1",
@@ -37,7 +38,6 @@
     "core-js": "^2.5.1",
     "electron": "^1.7.9",
     "rxjs": "^5.5.2",
-    "systemjs": "^0.20.19",
     "zone.js": "^0.8.18"
   }
 }
