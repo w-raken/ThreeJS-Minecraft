@@ -45,6 +45,23 @@ let webpackConfig = {
                 test: /\.html$/,
                 exclude: /node_modules/,
                 loaders: ['raw-loader']
+            },
+            {
+                // All images and fonts will be optimized and their paths will be solved
+                enforce: 'pre',
+                test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)(\?.*)?$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            name: '[name].[hash:10].[ext]'
+                        }
+                    },
+                    {
+                        loader: 'img-loader'
+                    }
+                ],
+                exclude: /node_modules/
             }
         ]
     },
