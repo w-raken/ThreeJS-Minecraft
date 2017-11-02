@@ -2,3 +2,7 @@
 node_modules/*
 dist/*
 packager/*
+installer/*
+npm-debug-log
+appdmg.json
+electron-angular.dmg
