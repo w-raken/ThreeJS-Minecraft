@@ -6,7 +6,9 @@
 
 > A simple kit for [Electron](https://electron.atom.io), [Angular 4](https://angular.io) and [Webpack 3](https://webpack.js.org) including a live reload system for Angular.
 
-> The boilerplate also include loaders for [TypeScript](https://www.typescriptlang.org/) and [Sass](http://sass-lang.com/).
+> The boilerplate include loaders for [TypeScript](https://www.typescriptlang.org/) and [Sass](http://sass-lang.com/).
+
+> [Commands](#commands) are available to package your app or create installer on Windows, Mac and Linux.
 
 ## Quick start
 ### Be sure to have Node version >= 6.0 and NPM >= 5 installed on your computer/server
@@ -23,16 +25,20 @@ cd Electron_Angular
 # install dependencies with npm
 npm install
 ```
-## Commands
+## <a name="commands"></a>Commands
 |Command|Description|
 |--|--|
 |`npm run dev`| Execute the app with a live reload system and source mapping |
 |`npm run prod`| Build the app with css/js optimizations and minifications |
 |`npm run packager:win`| *Soon* |
-|`npm run packager:mac`| Package the app with prod configuration. Platform Darwin, Arch x64 |
+|`npm run packager:mac`| Package the app with prod configuration and generate executables/bundles
+|| ↳ Default configuration : Platform Darwin, Arch x64
 |`npm run packager:linux`| *Soon* |
 |`npm run installer:win`| *Soon* |
-|`npm run installer:mac`| *Soon* |
+|`npm run installer:mac`| Create DMG installer to distribute your app easily |
+|| ↳ Require XCode and XCode Command Line Tools
+|| ↳ XCode licence must be accepted : `sudo xcodebuild -license accept`
+|| ↳ Default configuration : Platform Darwin, Arch x64
 |`npm run installer:linux`| *Soon* |
 
 ## Contributors
