@@ -28,12 +28,12 @@ npm install
 |--|--|
 |`npm run dev`| Execute the app with a live reload system and source mapping |
 |`npm run prod`| Build the app with css/js optimizations and minifications |
-|`npm run packager:win`| Soon |
-|`npm run packager:mac`| Soon |
-|`npm run packager:linux`| Soon |
-|`npm run installer:win`| Soon |
-|`npm run installer:mac`| Soon |
-|`npm run installer:linux`| Soon |
+|`npm run packager:win`| *Soon* |
+|`npm run packager:mac`| Package the app with prod configuration. Platform Darwin, Arch x64 |
+|`npm run packager:linux`| *Soon* |
+|`npm run installer:win`| *Soon* |
+|`npm run installer:mac`| *Soon* |
+|`npm run installer:linux`| *Soon* |
 
 ## Contributors
 | [![Laurent BASSIN](https://avatars2.githubusercontent.com/u/11029822?s=115&v=4)](https://github.com/lbassin) | [![Maxime MARQUET](https://avatars0.githubusercontent.com/u/12535829?s=115&v=4)](https://github.com/x-Raz) |

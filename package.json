@@ -8,13 +8,15 @@
     "dev": "cross-env NODE_ENV=dev webpack && concurrently \"webpack-dev-server --port=4200\"",
     "prod": "webpack && electron .",
     "build": "webpack",
-    "start": "electron ."
+    "start": "electron .",
+    "packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=packager"
   },
   "author": "BASSIN Laurent & MARQUET Maxime",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^3.5.0",
     "cross-env": "^5.1.1",
+    "electron-packager": "^9.1.0",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
     "img-loader": "^2.0.0",
