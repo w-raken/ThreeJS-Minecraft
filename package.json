@@ -10,7 +10,7 @@
 		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=true --out=win_packager",
 		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=mac_packager",
 		"packager:linux": "electron .",
-		"installer:win": "npm run packager:win && node installers/windows/createinstaller.js",
+		"installer:win": "npm run packager:win && node installers/windows/createinstaller.js && del /s /q win_packager && rmdir /s /q win_packager",
 		"installer:mac": "npm run packager:mac && mkdir installer && electron-installer-dmg ./mac_packager/Electron_Angular-darwin-x64/Electron_Angular.app electron-angular --out=mac_installer --overwrite && rm -rf mac_packager",
 		"installer:linux": "electron ."
 	},
