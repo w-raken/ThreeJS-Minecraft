@@ -30,8 +30,9 @@ npm install
 |--|--|
 |`npm run dev`| Execute the app with a live reload system and source mapping |
 |`npm run prod`| Build the app with css/js optimizations and minifications |
-|`npm run packager:win`| *Soon* |
-|`npm run packager:mac`| Package the app with prod configuration and generate executables/bundles
+|`npm run packager:win`| Package the app with prod configuration and generate .exe and supporting files
+|| ↳ Default configuration : Platform Win32, Arch ia32
+|`npm run packager:mac`| Package the app with prod configuration and generate .app and supporting files
 || ↳ Default configuration : Platform Darwin, Arch x64
 |`npm run packager:linux`| *Soon* |
 |`npm run installer:win`| *Soon* |

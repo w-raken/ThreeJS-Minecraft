@@ -7,8 +7,8 @@
 	"scripts": {
 		"dev": "cross-env NODE_ENV=dev webpack && concurrently \"webpack-dev-server --port=4200\"",
 		"prod": "webpack && electron .",
-		"packager:win": "electron .",
-		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=packager",
+		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=true --out=packager --asar",
+		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=packager --asar",
 		"packager:linux": "electron .",
 		"installer:win": "electron .",
 		"installer:mac": "npm run packager:mac && mkdir installer && electron-installer-dmg ./packager/Electron_Angular-darwin-x64/Electron_Angular.app electron-angular --out=installer --overwrite && rm -rf packager",
