@@ -3,6 +3,10 @@ node_modules/*
 dist/*
 packager/*
 installer/*
+mac_packager/*
+mac_installer/*
+win_packager/*
+win_installer/*
 npm-debug-log
 appdmg.json
 electron-angular.dmg

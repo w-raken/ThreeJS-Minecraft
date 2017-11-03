@@ -7,11 +7,11 @@
 	"scripts": {
 		"dev": "cross-env NODE_ENV=dev webpack && concurrently \"webpack-dev-server --port=4200\"",
 		"prod": "webpack && electron .",
-		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=true --out=packager --asar",
-		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=packager --asar",
+		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=true --out=win_packager",
+		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=mac_packager",
 		"packager:linux": "electron .",
-		"installer:win": "electron .",
-		"installer:mac": "npm run packager:mac && mkdir installer && electron-installer-dmg ./packager/Electron_Angular-darwin-x64/Electron_Angular.app electron-angular --out=installer --overwrite && rm -rf packager",
+		"installer:win": "npm run packager:win && node installers/windows/createinstaller.js",
+		"installer:mac": "npm run packager:mac && mkdir installer && electron-installer-dmg ./mac_packager/Electron_Angular-darwin-x64/Electron_Angular.app electron-angular --out=mac_installer --overwrite && rm -rf mac_packager",
 		"installer:linux": "electron ."
 	},
 	"author": "BASSIN Laurent & MARQUET Maxime",
@@ -21,6 +21,7 @@
 		"cross-env": "^5.1.1",
 		"electron-installer-dmg": "^0.2.1",
 		"electron-packager": "^9.1.0",
+		"electron-winstaller": "^2.6.3",
 		"file-loader": "^1.1.5",
 		"html-webpack-plugin": "^2.30.1",
 		"img-loader": "^2.0.0",
