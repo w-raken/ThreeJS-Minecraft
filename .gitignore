@@ -1,12 +1,21 @@
-.idea/*
-node_modules/*
+# compiled output
 dist/*
-packager/*
-installer/*
+
+# dependencies
+node_modules/*
+
+# ide
+.idea/*
+
+# mac packager/installer
 mac_packager/*
 mac_installer/*
+electron-angular.dmg
+appdmg.json
+
+# windows packager/installer
 win_packager/*
 win_installer/*
+
+# miscellaneous
 npm-debug-log
-appdmg.json
-electron-angular.dmg
