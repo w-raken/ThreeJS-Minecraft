@@ -36,6 +36,8 @@ npm install
 || ↳ Default configuration : Platform Darwin, Arch x64
 |`npm run packager:linux`| *Soon* |
 |`npm run installer:win`| Create Squirrel installer to distribute your app easily
+|| ↳ Setup.exe will install app in app_data directory
+|| ↳ A desktop shortcut will be created
 || ↳ Default configuration : Platform Win32, Arch ia32
 |`npm run installer:mac`| Create DMG installer to distribute your app easily
 || ↳ Require XCode and XCode Command Line Tools
