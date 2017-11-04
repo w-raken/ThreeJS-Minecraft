@@ -41,9 +41,9 @@ let webpackConfig = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: dev ? '[name].css' : '[name].[hash:10].css'
+                        name: '[name].[hash:10].css'
                     }
-                }, 'resolve-url-loader', 'sass-loader'],
+                }, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
             },
             {
                 // All files with a '.html' extension will be injected as they are with raw-loader
