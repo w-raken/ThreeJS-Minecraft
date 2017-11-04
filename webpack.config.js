@@ -5,11 +5,19 @@ const exec = require('child_process').exec;
 const uglifyJs = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+// html-webpack-plugin configuration
 const indexConfig = {
     template: './index.html',
-    excludeChunks: ['electron']
+    excludeChunks: ['electron'],
+    chunksSortMode: (chunk1, chunk2) => {
+    	// Set the order of files injected (dependencies before app)
+		// https://github.com/jantimon/html-webpack-plugin/issues/481
+        let orders = ['corejs', 'zonejs', 'app'];
+        return orders.indexOf(chunk1.names[0]) - orders.indexOf(chunk2.names[0]);
+    }
 };
 
+// clean-webpack-plugin configuration
 const pathsToClean = [
 	'./dist/css',
 	'./dist/assets'
@@ -28,9 +36,11 @@ let webpackConfig = {
 	},
 	// Where webpack looks to start building the bundle
 	entry: {
-		'electron': './electron',
-		'app': './app/main.ts'
-	},
+		'electron': './electron', // Electron entry point
+		'corejs': 'zone.js/dist/zone', // Angular dependency
+		'zonejs': 'core-js/client/shim', // Angular dependency
+        'app': './app/main.ts' // App entry point
+    },
 	// How the different types of modules within a project will be treated
 	module: {
 		rules: [{
