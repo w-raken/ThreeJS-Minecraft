@@ -39,7 +39,7 @@ let webpackConfig = {
             use: [{
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[hash:10].css'
+                    name: 'css/[name].[hash:10].css'
                 }
             }, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
         }, {
@@ -54,7 +54,7 @@ let webpackConfig = {
 			use: [{
 				loader: 'url-loader',
 				options: {
-					name: '[name].[hash:10].[ext]',
+					name: 'assets/[name].[hash:10].[ext]',
                     limit: 8192
 				}
 			}, {
