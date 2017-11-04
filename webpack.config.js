@@ -5,14 +5,14 @@ const exec = require('child_process').exec;
 const uglifyJs = require('uglifyjs-webpack-plugin');
 
 const indexConfig = {
-	template: './index.html',
-	excludeChunks: ['electron']
+    template: './index.html',
+    excludeChunks: ['electron']
 };
 
 let webpackConfig = {
 	// How source maps are generated : style of source mapping
 	devtool: dev ? 'eval-cheap-module-source-map' : false,
-	// Development server configuration 
+	// Development server configuration
 	devServer: {
 		// Execute custom middleware after all other middleware internally within the server
 		after() {
@@ -33,11 +33,16 @@ let webpackConfig = {
 			use: 'ts-loader',
 			exclude: /node_modules/
 		}, {
-			// All files with a '.scss' extension will be handled by sass-loader
-			test: /\.scss$/,
-			exclude: /node_modules/,
-			loaders: ['raw-loader', 'sass-loader', 'resolve-url-loader']
-		}, {
+            // All files with a '.scss' extension will be handled by sass-loader
+            test: /\.scss$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[hash:10].css'
+                }
+            }, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
+        }, {
 			// All files with a '.html' extension will be injected as they are with raw-loader
 			test: /\.html$/,
 			exclude: /node_modules/,
@@ -49,7 +54,8 @@ let webpackConfig = {
 			use: [{
 				loader: 'url-loader',
 				options: {
-					name: '[name].[hash:10].[ext]'
+					name: '[name].[hash:10].[ext]',
+                    limit: 8192
 				}
 			}, {
 				loader: 'img-loader'
