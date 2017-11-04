@@ -41,7 +41,7 @@ let webpackConfig = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: '[name].[hash:10].css'
+                        name: dev ? '[name].css' : '[name].[hash:10].css'
                     }
                 }, 'resolve-url-loader', 'sass-loader'],
             },
