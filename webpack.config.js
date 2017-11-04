@@ -12,7 +12,7 @@ const indexConfig = {
     chunksSortMode: (chunk1, chunk2) => {
     	// Set the order of files injected (dependencies before app)
 		// https://github.com/jantimon/html-webpack-plugin/issues/481
-        let orders = ['zonejs', 'corejs', 'app'];
+        let orders = ['corejs', 'zonejs', 'app'];
         return orders.indexOf(chunk1.names[0]) - orders.indexOf(chunk2.names[0]);
     }
 };
