@@ -20,7 +20,8 @@ const indexConfig = {
 // clean-webpack-plugin configuration
 const pathsToClean = [
 	'./dist/css',
-	'./dist/assets'
+	'./dist/assets',
+    './dist/templates'
 ];
 
 let webpackConfig = {
