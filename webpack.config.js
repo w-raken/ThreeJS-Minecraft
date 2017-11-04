@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // html-webpack-plugin configuration
 const indexConfig = {
-    template: './index.html',
+    template: './app/index.html',
     excludeChunks: ['electron'],
     chunksSortMode: (chunk1, chunk2) => {
     	// Set the order of files injected (dependencies before app)
@@ -59,11 +59,19 @@ let webpackConfig = {
                 }
             }, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
         }, {
-            test: /\.html$/,
+		    // Match html files but exclude index.html used in html-webpack-plugin
+            test: /[^(index)]\.html$/,
             exclude: /node_modules/,
-            use: {
-                loader: 'html-loader',
-            }
+            use: [
+                {
+                    loader: 'file-loader',
+                    options: {
+                        name: 'templates/[name].[hash:10].html',
+                    }
+                },
+                'extract-loader',
+                'html-loader'
+            ]
         }, {
 			// All images and fonts will be optimized and their paths will be solved
 			enforce: 'pre',
@@ -107,7 +115,6 @@ let webpackConfig = {
 
 // UglifyJs and clean output folder only for prod
 if (!dev) {
-    console.error('PROD');
 	webpackConfig.plugins.push(new CleanWebpackPlugin(pathsToClean));
 	webpackConfig.plugins.push(new uglifyJs());
 }
