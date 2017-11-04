@@ -3,11 +3,17 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const exec = require('child_process').exec;
 const uglifyJs = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const indexConfig = {
     template: './index.html',
     excludeChunks: ['electron']
 };
+
+const pathsToClean = [
+	'./dist/css',
+	'./dist/assets'
+];
 
 let webpackConfig = {
 	// How source maps are generated : style of source mapping
@@ -88,8 +94,9 @@ let webpackConfig = {
 	]
 };
 
-// UglifyJs only for prod
+// UglifyJs and clean output folder only for prod
 if (!dev) {
+	webpackConfig.plugins.push(new CleanWebpackPlugin(pathsToClean));
 	webpackConfig.plugins.push(new uglifyJs());
 }
 

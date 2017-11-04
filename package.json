@@ -17,6 +17,7 @@
 	"author": "BASSIN Laurent & MARQUET Maxime",
 	"license": "MIT",
 	"devDependencies": {
+		"clean-webpack-plugin": "^0.1.17",
 		"concurrently": "^3.5.0",
 		"cross-env": "^5.1.1",
 		"css-loader": "^0.28.7",
