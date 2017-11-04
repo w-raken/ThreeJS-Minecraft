@@ -7,7 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // html-webpack-plugin configuration
 const indexConfig = {
-    template: './app/index.html',
+    template: './app/index.hbs',
     excludeChunks: ['electron'],
     chunksSortMode: (chunk1, chunk2) => {
     	// Set the order of files injected (dependencies before app)
@@ -60,8 +60,8 @@ let webpackConfig = {
                 }
             }, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
         }, {
-		    // Match html files but exclude index.html used in html-webpack-plugin
-            test: /[^(index)]\.html$/,
+		    // All files with a '.html' extension will be handled by html-loader and save into external file
+            test: /\.html$/,
             exclude: /node_modules/,
             use: [
                 {
