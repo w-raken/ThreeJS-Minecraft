@@ -59,11 +59,12 @@ let webpackConfig = {
                 }
             }, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
         }, {
-			// All files with a '.html' extension will be injected as they are with raw-loader
-			test: /\.html$/,
-			exclude: /node_modules/,
-			loaders: ['raw-loader']
-		}, {
+            test: /\.html$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'html-loader',
+            }
+        }, {
 			// All images and fonts will be optimized and their paths will be solved
 			enforce: 'pre',
 			test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)(\?.*)?$/,
@@ -106,6 +107,7 @@ let webpackConfig = {
 
 // UglifyJs and clean output folder only for prod
 if (!dev) {
+    console.error('PROD');
 	webpackConfig.plugins.push(new CleanWebpackPlugin(pathsToClean));
 	webpackConfig.plugins.push(new uglifyJs());
 }
