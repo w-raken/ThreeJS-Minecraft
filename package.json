@@ -1,5 +1,5 @@
 {
-	"name": "Electron_Angular",
+	"name": "Electron-Angular",
 	"version": "1.0.0",
 	"description": "A simple kit for Electron, Angular 4 and Webpack 3 including a live reload system for Angular.",
 	"repository": "https://github.com/lbassin/Electron_Angular",
@@ -12,7 +12,7 @@
 		"packager:linux": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=linux --arch=x64 --prune=true --out=linux_packager",
 		"installer:win": "npm run packager:win && node installers/windows/createinstaller.js && del /s /q win_packager && rmdir /s /q win_packager",
 		"installer:mac": "npm run packager:mac && mkdir installer && electron-installer-dmg ./mac_packager/Electron_Angular-darwin-x64/Electron_Angular.app electron-angular --out=mac_installer --overwrite && rm -rf mac_packager",
-		"installer:linux": "electron ."
+		"installer:linux": "npm run packager:linux && electron-installer-debian --src ./linux_packager/electron-angular-linux-x64/ --arch amd64 --dest linux_installer --config ./installers/linux/debian.json"
 	},
 	"author": "BASSIN Laurent & MARQUET Maxime",
 	"license": "MIT",
@@ -21,6 +21,7 @@
 		"concurrently": "^3.5.0",
 		"cross-env": "^5.1.1",
 		"css-loader": "^0.28.7",
+		"electron-installer-debian": "^0.6.0",
 		"electron-installer-dmg": "^0.2.1",
 		"electron-packager": "^9.1.0",
 		"electron-squirrel-startup": "^1.0.0",
