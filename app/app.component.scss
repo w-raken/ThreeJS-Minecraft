@@ -1,12 +1,18 @@
 // App
-:host{
-    h2{
-        color: cornflowerblue;
-    }
-    .test {
-    	background: url('./axo.jpg');
-    	background-size: contain;
-    	width: 200px;
-    	height: 200px;
-    }
+:host {
+  h2 {
+    color: cornflowerblue;
+  }
+
+  .test {
+    background: url('./axo.jpg');
+    background-size: contain;
+    width: 200px;
+    height: 200px;
+  }
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
 }
