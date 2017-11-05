@@ -21,7 +21,7 @@ node -v
 npm --version
 ```
 
-If you are confronted with the following error while executing our commands :
+If you are confronted to the following error while executing our commands :
 ```bash
 ERROR in {project_name}/image.jpg
      Module build failed: Error: dyld: Library not loaded: /usr/local/opt/libpng/lib/libpng16.16.dylib
