@@ -5,7 +5,7 @@
 	"repository": "https://github.com/lbassin/Electron_Angular",
 	"main": "dist/electron.js",
 	"scripts": {
-		"dev": "cross-env NODE_ENV=dev webpack-dev-server --port=4200",
+		"dev": "webpack && cross-env NODE_ENV=dev webpack-dev-server --port=4200",
 		"prod": "webpack && electron .",
 		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=true --out=win_packager",
 		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=mac_packager",

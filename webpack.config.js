@@ -32,7 +32,9 @@ let webpackConfig = {
 		// Execute custom middleware after all other middleware internally within the server
 		after() {
 			// Fix whitescreen bug on build with Electron BrowserWindow
-			exec('electron . --dev');
+			exec('electron . --dev', function(error){
+				console.log(error);
+			});
 		}
 	},
 	// Where webpack looks to start building the bundle
