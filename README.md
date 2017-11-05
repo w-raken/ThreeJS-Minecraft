@@ -34,7 +34,8 @@ npm install
 || ↳ Default configuration : Platform Win32, Arch ia32
 |`npm run packager:mac`| Package the app with prod configuration and generate .app and supporting files
 || ↳ Default configuration : Platform Darwin, Arch x64
-|`npm run packager:linux`| *Soon* |
+|`npm run packager:linux`| Package the app with prod configuration and generate executable and supporting files
+|| ↳ Default configuration : Platform Linux, Arch x64
 |`npm run installer:win`| Create Squirrel installer to distribute your app easily
 || ↳ Setup.exe will install app in app_data directory
 || ↳ A desktop shortcut will be created

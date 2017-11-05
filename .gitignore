@@ -17,5 +17,9 @@ appdmg.json
 win_packager/*
 win_installer/*
 
+# linux packager/installer
+linux_packager/*
+linux_installer/*
+
 # miscellaneous
 npm-debug-log
