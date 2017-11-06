@@ -1,11 +1,25 @@
 const path = require('path');
-const json = require(path.resolve('./package.json'));
+const json = require(path.resolve('../package.json'));
 const os = require('os');
 const exec = require('child_process').exec;
 
+const spec = {
+    'platform': {
+        '1': 'win32',
+        '2': 'darwin',
+        '3': 'linux'
+    },
+    'arch': {
+        '1': 'ia32',
+        '2': 'x64',
+        '3': 'armv7l',
+        '4': 'arm64'
+    }
+};
+
 switch (process.env.NODE_OS) {
     case "mac":
-        exec("mkdir mac_installer && electron-installer-dmg ./mac_packager/" + json.name + "-" + os.platform() + "-" + os.arch() + "/" + json.name + ".app " + json.name + " --out=mac_installer --overwrite && rm -rf mac_packager");
+        exec("mkdir mac_installer && electron-installer-dmg ./mac_packager/" + json.name + "-" + spec['platform']['2'] + "-" + spec['arch']['2'] + "/" + json.name + ".app " + json.name + " --out=mac_installer --overwrite && rm -rf mac_packager");
         break;
     case "linux":
         console.log('todo')
@@ -14,10 +28,10 @@ switch (process.env.NODE_OS) {
         const electronInstaller = require('electron-winstaller');
 
         var settings = {
-            appDirectory: path.join(path.join((path.join('./'), 'win_packager'), json.name + "-" + os.platform() + "-" + os.arch() + '/')),
+            appDirectory: path.join(path.join((path.join('./'), 'win_packager'), json.name + "-" + spec['platform']['1'] + "-" + spec['arch']['1'] + '/')),
             outputDirectory: path.join(path.join('./'), 'win_installer'),
             authors: '',
-            exe: json.name + 'exe'
+            exe: json.name + '.exe'
         };
 
         console.log('Creating windows installer');
