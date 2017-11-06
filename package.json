@@ -2,7 +2,7 @@
 	"name": "electron-angular-webpack",
 	"version": "1.0.0",
 	"description": "A simple kit for Electron, Angular 4 and Webpack 3 including a live reload system for Angular.",
-	"repository": "https://github.com/lbassin/Electron_Angular",
+	"repository": "https://github.com/lbassin/electron-angular-webpack",
 	"main": "dist/electron.js",
 	"scripts": {
 		"dev": "webpack && cross-env NODE_ENV=dev webpack-dev-server --port=4200",
