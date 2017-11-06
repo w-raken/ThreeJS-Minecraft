@@ -7,21 +7,21 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // html-webpack-plugin configuration
 const indexConfig = {
-    template: './app/index.hbs',
-    excludeChunks: ['electron'],
-    chunksSortMode: (chunk1, chunk2) => {
-    	// Set the order of files injected (dependencies before app)
+	template: './app/index.hbs',
+	excludeChunks: ['electron'],
+	chunksSortMode: (chunk1, chunk2) => {
+		// Set the order of files injected (dependencies before app)
 		// https://github.com/jantimon/html-webpack-plugin/issues/481
-        let orders = ['corejs', 'zonejs', 'app'];
-        return orders.indexOf(chunk1.names[0]) - orders.indexOf(chunk2.names[0]);
-    }
+		let orders = ['corejs', 'zonejs', 'app'];
+		return orders.indexOf(chunk1.names[0]) - orders.indexOf(chunk2.names[0]);
+	}
 };
 
 // clean-webpack-plugin configuration
 const pathsToClean = [
 	'./dist/css',
 	'./dist/assets',
-    './dist/templates'
+	'./dist/templates'
 ];
 
 let webpackConfig = {
@@ -38,10 +38,10 @@ let webpackConfig = {
 	// Where webpack looks to start building the bundle
 	entry: {
 		'electron': './electron', // Electron entry point
-        'corejs': 'core-js/client/shim', // Angular dependency
-        'zonejs': 'zone.js/dist/zone', // Angular dependency
-        'app': './app/main.ts' // App entry point
-    },
+		'corejs': 'core-js/client/shim', // Angular dependency
+		'zonejs': 'zone.js/dist/zone', // Angular dependency
+		'app': './app/main.ts' // App entry point
+	},
 	// How the different types of modules within a project will be treated
 	module: {
 		rules: [{
@@ -50,30 +50,29 @@ let webpackConfig = {
 			use: 'ts-loader',
 			exclude: /node_modules/
 		}, {
-            // All files with a '.scss' extension will be handled by sass-loader
-            test: /\.scss$/,
-            exclude: /node_modules/,
-            use: [{
-                loader: 'file-loader',
-                options: {
-                    name: 'css/[name].[hash:10].css'
-                }
-            }, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
-        }, {
-		    // All files with a '.html' extension will be handled by html-loader and save into external file
-            test: /\.html$/,
-            exclude: /node_modules/,
-            use: [
-                {
-                    loader: 'file-loader',
-                    options: {
-                        name: 'templates/[name].[hash:10].html',
-                    }
-                },
-                'extract-loader',
-                'html-loader'
-            ]
-        }, {
+			// All files with a '.scss' extension will be handled by sass-loader
+			test: /\.scss$/,
+			exclude: /node_modules/,
+			use: [{
+				loader: 'file-loader',
+				options: {
+					name: 'css/[name].[hash:10].css'
+				}
+			}, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
+		}, {
+			// All files with a '.html' extension will be handled by html-loader and save into external file
+			test: /\.html$/,
+			exclude: /node_modules/,
+			use: [{
+					loader: 'file-loader',
+					options: {
+						name: 'templates/[name].[hash:10].html',
+					}
+				},
+				'extract-loader',
+				'html-loader'
+			]
+		}, {
 			// All images and fonts will be optimized and their paths will be solved
 			enforce: 'pre',
 			test: /\.(png|jpe?g|gif|svg|woff2?|eot|ttf|otf|wav)(\?.*)?$/,
@@ -81,7 +80,7 @@ let webpackConfig = {
 				loader: 'url-loader',
 				options: {
 					name: 'assets/[name].[hash:10].[ext]',
-                    limit: 8192
+					limit: 8192
 				}
 			}, {
 				loader: 'img-loader'
