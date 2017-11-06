@@ -13,16 +13,27 @@ const spec = {
         '1': 'ia32',
         '2': 'x64',
         '3': 'armv7l',
-        '4': 'arm64'
+        '4': 'arm64',
+        '5': 'amd64'
     }
 };
+
+const linuxConfig = `{
+    "dest": "linux_installer",
+    "categories": [
+        "Utility"
+    ],
+    "lintianOverrides": [
+        "changelog-file-missing-in-native-package"
+    ]
+}`;
 
 switch (process.env.NODE_OS) {
     case "mac":
         exec("mkdir mac_installer && electron-installer-dmg ./mac_packager/" + json.name + "-" + spec['platform']['2'] + "-" + spec['arch']['2'] + "/" + json.name + ".app " + json.name + " --out=mac_installer --overwrite && rm -rf mac_packager");
         break;
     case "linux":
-        console.log('todo')
+        exec("electron-installer-debian --src ./linux_packager/" + json.name + "-" + spec['platform']['3'] + "-" + spec['arch']['2'] + "/ --arch " + spec['arch']['5'] + " --dest linux_installer --config " + linuxConfig);
         break;
     case "win":
         const electronInstaller = require('electron-winstaller');

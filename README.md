@@ -65,6 +65,8 @@ npm install
 |`npm run installer:linux`| Create DEB installer to distribute your app easily
 || ↳ Default configuration : Platform Linux, Arch ia32 ~ *Tested on Ubuntu 16.04*
 
+To change the default configuration of installers in `./builder/installer.js`, edit `spec['platform']` and `spec['arch']` calls in the switch. You can add your own platform and arch in the object `spec`.
+
 ## Contributors
 | [![Laurent BASSIN](https://avatars2.githubusercontent.com/u/11029822?s=115&v=4)](https://github.com/lbassin) | [![Maxime MARQUET](https://avatars0.githubusercontent.com/u/12535829?s=115&v=4)](https://github.com/x-Raz) |
 | :--:|:--: |
