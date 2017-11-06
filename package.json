@@ -1,5 +1,5 @@
 {
-	"name": "Electron-Angular",
+	"name": "Electron_Angular",
 	"version": "1.0.0",
 	"description": "A simple kit for Electron, Angular 4 and Webpack 3 including a live reload system for Angular.",
 	"repository": "https://github.com/lbassin/Electron_Angular",
@@ -7,11 +7,11 @@
 	"scripts": {
 		"dev": "webpack && cross-env NODE_ENV=dev webpack-dev-server --port=4200",
 		"prod": "webpack && electron .",
-		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=true --out=win_packager",
-		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=mac_packager",
-		"packager:linux": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=linux --arch=x64 --prune=true --out=linux_packager",
+		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=ia32 --prune=true --out=win_packager --icon=assets/icons/win/icon.ico",
+		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=mac_packager --icon=assets/icons/mac/icon.icns",
+		"packager:linux": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=linux --arch=x64 --prune=true --out=linux_packager --icon=assets/icons/linux/icon.png",
 		"installer:win": "npm run packager:win && node installers/windows/createinstaller.js && del /s /q win_packager && rmdir /s /q win_packager",
-		"installer:mac": "npm run packager:mac && mkdir installer && electron-installer-dmg ./mac_packager/Electron_Angular-darwin-x64/Electron_Angular.app electron-angular --out=mac_installer --overwrite && rm -rf mac_packager",
+		"installer:mac": "npm run packager:mac && mkdir mac_installer && electron-installer-dmg ./mac_packager/Electron_Angular-darwin-x64/Electron_Angular.app electron-angular --out=mac_installer --overwrite && rm -rf mac_packager",
 		"installer:linux": "npm run packager:linux && electron-installer-debian --src ./linux_packager/electron-angular-linux-x64/ --arch amd64 --dest linux_installer --config ./installers/linux/debian.json"
 	},
 	"author": "BASSIN Laurent & MARQUET Maxime",
