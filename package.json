@@ -21,11 +21,7 @@
 		"concurrently": "^3.5.0",
 		"cross-env": "^5.1.1",
 		"css-loader": "^0.28.7",
-		"electron-installer-debian": "^0.6.0",
-		"electron-installer-dmg": "^0.2.1",
 		"electron-packager": "^9.1.0",
-		"electron-squirrel-startup": "^1.0.0",
-		"electron-winstaller": "^2.6.3",
 		"extract-loader": "^1.0.1",
 		"file-loader": "^1.1.5",
 		"html-loader": "^0.5.1",
@@ -41,6 +37,12 @@
 		"url-loader": "^0.6.2",
 		"webpack": "^3.8.1",
 		"webpack-dev-server": "^2.9.3"
+	},
+	"optionalDependencies": {
+		"electron-installer-debian": "^0.6.0",
+		"electron-installer-dmg": "^0.2.1",
+		"electron-squirrel-startup": "^1.0.0",
+		"electron-winstaller": "^2.6.3"
 	},
 	"dependencies": {
 		"@angular/common": "^4.4.6",
