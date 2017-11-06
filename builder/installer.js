@@ -1,5 +1,5 @@
 const path = require('path');
-const json = require(path.resolve('../package.json'));
+const json = require(path.resolve('./package.json'));
 const os = require('os');
 const exec = require('child_process').exec;
 
