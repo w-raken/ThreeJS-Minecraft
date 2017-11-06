@@ -1,6 +1,5 @@
 const path = require('path');
 const json = require(path.resolve('./package.json'));
-const os = require('os');
 const exec = require('child_process').exec;
 const linuxInstaller = require('electron-installer-debian');
 
@@ -42,7 +41,7 @@ switch (process.env.NODE_OS) {
                 process.exit(1);
             }
 
-            console.log('Successfully created package at ' + options.dest);
+            console.log('Successfully created package at ' + linuxConfig.dest);
         });
         break;
     case "win":
