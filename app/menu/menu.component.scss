@@ -1,0 +1,20 @@
+:host {
+
+  .button {
+    display: inline-block;
+    text-align: center;
+
+    margin-left: 13.5%;
+    padding: 15px 0;
+    width: 15%;
+
+    border: 1px solid #DC1E34;
+    border-radius: 15px;
+
+    &:hover{
+      transform: scale(1.1) translateY(-5px);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+  }
+}

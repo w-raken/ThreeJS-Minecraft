@@ -1,18 +1,20 @@
-// App
 :host {
-  h2 {
-    color: cornflowerblue;
-  }
+  margin: 0;
+  padding: 0;
 
-  .test {
-    background: url('./axo.jpg');
-    background-size: contain;
-    width: 200px;
-    height: 200px;
-  }
+  .head{
+    width: 100%;
+    margin-bottom: 40px;
 
-  img {
-    width: 100px;
-    height: 100px;
+    img {
+      margin: auto;
+      display: block;
+      width: 25%;
+    }
+
+    h1{
+      text-align: center;
+      color: #DC1E34;
+    }
   }
 }
