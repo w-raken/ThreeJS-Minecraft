@@ -42,7 +42,8 @@ switch (process.env.NODE_OS) {
             appDirectory: path.join(path.join((path.join('./'), 'win_packager'), json.name + "-" + spec['platform']['1'] + "-" + spec['arch']['1'] + '/')),
             outputDirectory: path.join(path.join('./'), 'win_installer'),
             authors: '',
-            exe: json.name + '.exe'
+            exe: json.name + '.exe',
+            name: json.name.replace(/-/g, "_")
         };
 
         console.log('Creating windows installer');
