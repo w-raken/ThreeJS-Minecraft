@@ -12,7 +12,7 @@
 
 ## Quick start
 ### Prerequisites
-Be sure to have **Node version >= 6.0** and **NPM >= 5** installed on your computer/server
+Be sure to have **Node >= 6.0** and **NPM >= 5** installed on your computer/server
 ```bash
 # check node version
 node -v
@@ -21,7 +21,7 @@ node -v
 npm --version
 ```
 
-If you are confronted to the following error while executing our commands :
+If you are confronted to the following error while executing our commands on **Mac OS** :
 ```bash
 ERROR in {project_name}/image.jpg
      Module build failed: Error: dyld: Library not loaded: /usr/local/opt/libpng/lib/libpng16.16.dylib
