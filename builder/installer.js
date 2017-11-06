@@ -2,6 +2,7 @@ const path = require('path');
 const json = require(path.resolve('./package.json'));
 const os = require('os');
 const exec = require('child_process').exec;
+const linuxInstaller = require('electron-installer-debian');
 
 const spec = {
     'platform': {
@@ -18,22 +19,31 @@ const spec = {
     }
 };
 
-const linuxConfig = `{
-    "dest": "linux_installer",
-    "categories": [
+const linuxConfig = {
+    src: "./linux_packager/" + json.name + "-" + spec['platform']['3'] + "-" + spec['arch']['2'] + "/",
+    arch: spec['arch']['5'],
+    dest: "linux_installer",
+    categories: [
         "Utility"
     ],
-    "lintianOverrides": [
+    lintianOverrides: [
         "changelog-file-missing-in-native-package"
     ]
-}`;
+};
 
 switch (process.env.NODE_OS) {
     case "mac":
         exec("mkdir mac_installer && electron-installer-dmg ./mac_packager/" + json.name + "-" + spec['platform']['2'] + "-" + spec['arch']['2'] + "/" + json.name + ".app " + json.name + " --out=mac_installer --overwrite && rm -rf mac_packager");
         break;
     case "linux":
-        exec("electron-installer-debian --src ./linux_packager/" + json.name + "-" + spec['platform']['3'] + "-" + spec['arch']['2'] + "/ --arch " + spec['arch']['5'] + " --dest linux_installer --config " + linuxConfig);
+        linuxInstaller(linuxConfig, (error) => {
+            if(error){
+                console.error(error);
+                process.exit(1);
+            }
+
+            console.log('Successfully created package at ' + options.dest);
+        });
         break;
     case "win":
         const electronInstaller = require('electron-winstaller');
