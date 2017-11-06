@@ -29,6 +29,7 @@ let webpackConfig = {
 	devtool: dev ? 'eval-cheap-module-source-map' : false,
 	// Development server configuration
 	devServer: {
+        historyApiFallback: true,
 		// Execute custom middleware after all other middleware internally within the server
 		after() {
 			// Fix whitescreen bug on build with Electron BrowserWindow

@@ -35,7 +35,7 @@ function createWindow() {
 			slashes: true
 		}));
 	} else {
-		mainWindow.loadURL('http://localhost:4200');
+		mainWindow.loadURL('http://127.0.0.1:4200');
 	}
 
 	if(dev){
