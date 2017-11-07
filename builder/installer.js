@@ -73,9 +73,14 @@ switch (process.env.NODE_OS) {
         resultPromise = electronInstaller.createWindowsInstaller(settings);
 
         resultPromise.then(() => {
-            exec("del /s /q win_packager && rmdir /s /q win_packager", { maxBuffer: 1024 * 2048 });
             console.log('Removing win_packager...');
-            console.log("Successfully created installer at ./win_installer/");
+            exec("del /s /q win_packager && rmdir /s /q win_packager", { maxBuffer: 1024 * 2048 }, (error) => {
+                if (!error) {
+                    console.log("Successfully created installer at ./win_installer/");
+                } else {
+                    console.log('Error : ' + error);
+                }
+            });
         }, (e) => {
             console.log('Error : ' + e.message);
         });
