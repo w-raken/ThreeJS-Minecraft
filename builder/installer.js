@@ -3,6 +3,8 @@ const json = require(path.resolve('./package.json'));
 const exec = require('child_process').exec;
 const linuxInstaller = require('electron-installer-debian');
 
+// See available platform and arch here :
+// https://github.com/electron-userland/electron-packager/blob/master/docs/api.md
 const spec = {
     'platform': {
         '1': 'win32',
@@ -36,7 +38,7 @@ switch (process.env.NODE_OS) {
         break;
     case "linux":
         linuxInstaller(linuxConfig, (error) => {
-            if(error){
+            if (error) {
                 console.error(error);
                 process.exit(1);
             }
