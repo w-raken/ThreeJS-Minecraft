@@ -14,20 +14,40 @@ const spec = {
 		'1': 'ia32',
 		'2': 'x64',
 		'3': 'armv7l',
-		'4': 'arm64',
-		'5': 'amd64'
+		'4': 'arm64'
 	}
 };
 
 switch (process.env.NODE_OS) {
 	case "mac":
-		exec("cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=" + spec['platform']['2'] + " --arch=" + spec['arch']['2'] + " --prune=true --out=mac_packager --icon=builder/icons/mac/icon.icns");
+		console.log('Creating mac packager...');
+		exec("cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=" + spec['platform']['2'] + " --arch=" + spec['arch']['2'] + " --prune=true --out=mac_packager --icon=builder/icons/mac/icon.icns", (error) => {
+			if (!error) {
+				console.log('Successfully created packager at ./mac_packager/');
+			} else {
+				console.log('Error : ' + error);
+			}
+		});
 		break;
 	case "linux":
-		exec("cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=" + spec['platform']['3'] + " --arch=" + spec['arch']['2'] + " --prune=true --out=linux_packager --icon=builder/icons/linux/icon.png");
+		console.log('Creating linux packager...');
+		exec("cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=" + spec['platform']['3'] + " --arch=" + spec['arch']['2'] + " --prune=true --out=linux_packager --icon=builder/icons/linux/icon.png", (error) => {
+			if (!error) {
+				console.log('Successfully created packager at ./linux_packager/');
+			} else {
+				console.log('Error : ' + error);
+			}
+		});
 		break;
 	case "win":
-		exec("cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=" + spec['platform']['1'] + " --arch=" + spec['arch']['2'] + " --prune=true --out=win_packager --icon=builder/icons/win/icon.ico");
+		console.log('Creating win packager...');
+		exec("cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=" + spec['platform']['1'] + " --arch=" + spec['arch']['2'] + " --prune=true --out=win_packager --icon=builder/icons/win/icon.ico", (error) => {
+			if (!error) {
+				console.log('Successfully created packager at ./win_packager/');
+			} else {
+				console.log('Error : ' + error);
+			}
+		});
 		break;
 	default:
 		throw new Error("NODE_OS undefined");
