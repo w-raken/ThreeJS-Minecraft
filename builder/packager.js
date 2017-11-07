@@ -40,7 +40,7 @@ switch (process.env.NODE_OS) {
 		});
 		break;
 	case "win":
-		console.log('Creating win packager...');
+		console.log('Creating windows packager...');
 		exec("cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=" + spec['platform']['1'] + " --arch=" + spec['arch']['2'] + " --prune=true --out=win_packager --icon=builder/icons/win/icon.ico", (error) => {
 			if (!error) {
 				console.log('Successfully created packager at ./win_packager/');
