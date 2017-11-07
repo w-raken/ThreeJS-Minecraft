@@ -107,13 +107,13 @@ electron-angular-webpack/
  │
  ├──node_modules/                  * non-global libraries are installed here
  │
- ├──mac_packager/                  * packager folder for mac (removed after installer creation)
+ ├──mac_packager/                  * packager folder for mac (removed after npm run installer:mac)
  ├──mac_installer/                 * installer folder for mac
  │
- ├──linux_packager/                * packager folder for linux (removed after installer creation)
+ ├──linux_packager/                * packager folder for linux (removed after npm run installer:linux)
  ├──linux_installer/               * installer folder for linux
  │
- ├──win_packager/                  * packager folder for windows (removed after installer creation)
+ ├──win_packager/                  * packager folder for windows (removed after npm run installer:win)
  └──win_installer/                 * installer folder for windows
 ```
 
