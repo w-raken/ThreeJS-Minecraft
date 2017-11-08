@@ -4,17 +4,22 @@
     display: inline-block;
     text-align: center;
 
-    margin-left: 13.5%;
+    margin-left: 10%;
     padding: 15px 0;
     width: 15%;
 
     border: 1px solid #DC1E34;
     border-radius: 15px;
 
+    transition: all 0.3s ease;
+
+    &:nth-child(1){
+      margin-left: 30%;
+    }
+
     &:hover{
       transform: scale(1.1) translateY(-5px);
       cursor: pointer;
-      transition: all 0.3s ease;
     }
   }
 }

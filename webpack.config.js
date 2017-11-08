@@ -87,6 +87,15 @@ let webpackConfig = {
 				loader: 'img-loader'
 			}],
 			exclude: /node_modules/
+		}, {
+			test: /\.hbs$/,
+			exclude: /node_modules/,
+			use: {
+				loader: 'html-loader',
+                options: {
+					attrs: ['img:src', 'link:href']
+				}
+            }
 		}]
 	},
 	// Configure how modules are resolved
@@ -111,7 +120,7 @@ let webpackConfig = {
 	// Customize the webpack build process with additionals plugins
 	plugins: [
 		new htmlWebpackPlugin(indexConfig)
-	]
+	],
 };
 
 // UglifyJs and clean output folder only for prod
