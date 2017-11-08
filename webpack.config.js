@@ -59,7 +59,7 @@ let webpackConfig = {
 				options: {
 					name: 'css/[name].[hash:10].css'
 				}
-			}, 'extract-loader', 'css-loader', 'resolve-url-loader', 'sass-loader'],
+			}, 'extract-loader', 'css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader'],
 		}, {
 			// All files with a '.html' extension will be handled by html-loader and save into external file
 			test: /\.html$/,
