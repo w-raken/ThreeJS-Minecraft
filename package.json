@@ -3,19 +3,32 @@
 	"version": "1.0.0",
 	"description": "A simple kit for Electron, Angular 4 and Webpack 3 including a live reload system for Angular.",
 	"repository": "https://github.com/lbassin/electron-angular-webpack",
+	"homepage": "https: //github.com/lbassin/electron-angular-webpack#readme",
+	"bugs": {
+		"url": "https://github.com/lbassin/electron-angular-webpack/issues"
+	},
+	"keywords": [
+		"electron",
+		"angular",
+		"webpack",
+		"boilerplate",
+		"live reload",
+		"typescript",
+		"sass"
+	],
+	"author": "BASSIN Laurent & MARQUET Maxime",
+	"license": "MIT",
 	"main": "dist/electron.js",
 	"scripts": {
 		"dev": "webpack && cross-env NODE_ENV=dev webpack-dev-server --port=4200",
 		"prod": "webpack && electron .",
-		"packager:win": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=win32 --arch=x64 --prune=true --out=win_packager --icon=builder/icons/win/icon.ico",
-		"packager:mac": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=darwin --arch=x64 --prune=true --out=mac_packager --icon=builder/icons/mac/icon.icns",
-		"packager:linux": "cross-env NODE_ENV=prod webpack && electron-packager . --overwrite --platform=linux --arch=x64 --prune=true --out=linux_packager --icon=builder/icons/linux/icon.png",
+		"packager:win": "cross-env NODE_OS=win node builder/packager.js",
+		"packager:mac": "cross-env NODE_OS=mac node builder/packager.js",
+		"packager:linux": "cross-env NODE_OS=linux node builder/packager.js",
 		"installer:win": "npm run packager:win && cross-env NODE_OS=win node builder/installer.js",
 		"installer:mac": "npm run packager:mac && cross-env NODE_OS=mac node builder/installer.js",
 		"installer:linux": "npm run packager:linux && cross-env NODE_OS=linux node builder/installer.js"
 	},
-	"author": "BASSIN Laurent & MARQUET Maxime",
-	"license": "MIT",
 	"devDependencies": {
 		"clean-webpack-plugin": "^0.1.17",
 		"concurrently": "^3.5.0",

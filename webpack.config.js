@@ -5,7 +5,7 @@ const exec = require('child_process').exec;
 const uglifyJs = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-// html-webpack-plugin configuration
+// Html-webpack-plugin configuration
 const indexConfig = {
 	template: './app/index.hbs',
 	excludeChunks: ['electron'],
@@ -17,7 +17,7 @@ const indexConfig = {
 	}
 };
 
-// clean-webpack-plugin configuration
+// Clean-webpack-plugin configuration
 const pathsToClean = [
 	'./dist/css',
 	'./dist/assets',
@@ -29,7 +29,7 @@ let webpackConfig = {
 	devtool: dev ? 'eval-cheap-module-source-map' : false,
 	// Development server configuration
 	devServer: {
-        historyApiFallback: true,
+		historyApiFallback: true,
 		// Execute custom middleware after all other middleware internally within the server
 		after() {
 			// Fix whitescreen bug on build with Electron BrowserWindow

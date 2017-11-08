@@ -22,4 +22,5 @@ linux_packager/*
 linux_installer/*
 
 # miscellaneous
+package-lock.json
 npm-debug-log
