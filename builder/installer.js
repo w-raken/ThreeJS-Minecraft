@@ -60,7 +60,7 @@ switch (process.env.NODE_OS) {
     case "win":
         const electronInstaller = require('electron-winstaller');
 
-        var settings = {
+        let settings = {
             appDirectory: path.join(path.join((path.join('./'), 'win_packager'), json.name + "-" + spec['platform']['1'] + "-" + spec['arch']['2'] + '/')),
             outputDirectory: path.join(path.join('./'), 'win_installer'),
             authors: '',

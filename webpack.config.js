@@ -65,13 +65,13 @@ let webpackConfig = {
 				{
 					loader: 'css-loader',
 					options: {
-						minimize: dev ? false : true
+						minimize: !dev
 					}
 				},
 				{
 					loader: 'postcss-loader',
 					options: {
-						sourceMap: dev ? true : false
+						sourceMap: dev
 					}
 				},
 				'resolve-url-loader',
@@ -137,7 +137,7 @@ let webpackConfig = {
 	// Customize the webpack build process with additionals plugins
 	plugins: [
 		new htmlWebpackPlugin(indexConfig),
-		new webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)/, path.resolve(__dirname, './src')),
+		new webpack.ContextReplacementPlugin(/angular([\\\/])core([\\\/])/, path.resolve(__dirname, './src')),
 	],
 };
 
