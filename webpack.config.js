@@ -1,5 +1,6 @@
 const dev = process.env.NODE_ENV === "dev";
 const path = require('path');
+const webpack = require('webpack');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const exec = require('child_process').exec;
 const uglifyJs = require('uglifyjs-webpack-plugin');
@@ -55,11 +56,27 @@ let webpackConfig = {
 			test: /\.scss$/,
 			exclude: /node_modules/,
 			use: [{
-				loader: 'file-loader',
-				options: {
-					name: 'css/[name].[hash:10].css'
-				}
-			}, 'extract-loader', 'css-loader', 'postcss-loader', 'resolve-url-loader', 'sass-loader'],
+					loader: 'file-loader',
+					options: {
+						name: 'css/[name].[hash:10].css'
+					}
+				},
+				'extract-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						minimize: dev ? false : true
+					}
+				},
+				{
+					loader: 'postcss-loader',
+					options: {
+						sourceMap: dev ? true : false
+					}
+				},
+				'resolve-url-loader',
+				'sass-loader'
+			],
 		}, {
 			// All files with a '.html' extension will be handled by html-loader and save into external file
 			test: /\.html$/,
@@ -92,10 +109,10 @@ let webpackConfig = {
 			exclude: /node_modules/,
 			use: {
 				loader: 'html-loader',
-                options: {
+				options: {
 					attrs: ['img:src', 'link:href']
 				}
-            }
+			}
 		}]
 	},
 	// Configure how modules are resolved
@@ -119,7 +136,8 @@ let webpackConfig = {
 	},
 	// Customize the webpack build process with additionals plugins
 	plugins: [
-		new htmlWebpackPlugin(indexConfig)
+		new htmlWebpackPlugin(indexConfig),
+		new webpack.ContextReplacementPlugin(/angular(\\|\/)core(\\|\/)/, path.resolve(__dirname, './src')),
 	],
 };
 
