@@ -53,6 +53,7 @@
 		"webpack-dev-server": "^2.9.3"
 	},
 	"optionalDependencies": {
+		"appdmg": "^0.5.1",
 		"electron-installer-debian": "^0.6.0",
 		"electron-installer-dmg": "^0.2.1",
 		"electron-squirrel-startup": "^1.0.0",
