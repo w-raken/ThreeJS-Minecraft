@@ -15,12 +15,14 @@
 ## Quick start
 ### Prerequisites
 Be sure to have **Node >= 8.0** and **NPM >= 5** installed on your computer/server
+
+You can download NodeJS by following this [link](https://nodejs.org/en/), take the LTS version. The installer will install **Node and Npm**.
 ```bash
 # check node version
 node -v
 
 # check npm version
-npm --version
+npm -v
 ```
 
 If you are confronted to the following error while executing our commands on **Mac OS** :
