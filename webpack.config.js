@@ -58,7 +58,7 @@ let webpackConfig = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: 'css/[name].[hash:10].css'
+                        name: '[name].[hash:10].css'
                     }
                 },
                     'extract-loader',
@@ -84,7 +84,7 @@ let webpackConfig = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: 'templates/[name].[hash:10].html',
+                        name: '[name].[hash:10].html',
                     }
                 },
                     'extract-loader',
@@ -97,7 +97,7 @@ let webpackConfig = {
                 use: [{
                     loader: 'url-loader',
                     options: {
-                        name: 'assets/[name].[hash:10].[ext]',
+                        name: '[name].[hash:10].[ext]',
                         limit: 8192
                     }
                 }, {
