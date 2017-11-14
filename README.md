@@ -123,7 +123,8 @@ electron-angular-webpack/
 ## Contributors
 | [![Laurent BASSIN](https://avatars2.githubusercontent.com/u/11029822?s=115&v=4)](https://github.com/lbassin) | [![Maxime MARQUET](https://avatars0.githubusercontent.com/u/12535829?s=115&v=4)](https://github.com/x-Raz) |
 | :--:|:--: |
-| [Laurent BASSIN](https://github.com/lbassin) | [Maxime MARQUET](https://github.com/x-Raz) |
+| Laurent BASSIN | Maxime MARQUET |
+| [![Github](https://img4.hostingpics.net/pics/549555githublogo2.png)](https://github.com/lbassin) [![Linkedin](https://img4.hostingpics.net/pics/187690linkedinbutton.png)](https://www.linkedin.com/in/laurent-bassin/) | [![Github](https://img4.hostingpics.net/pics/549555githublogo2.png)](https://github.com/x-Raz) [![Linkedin](https://img4.hostingpics.net/pics/187690linkedinbutton.png)](https://www.linkedin.com/in/maxime-marquet-5243b9a4/) |
 
 ## License
-MIT © [Laurent BASSIN](https://github.com/lbassin) & [Maxime MARQUET](https://github.com/x-Raz)
+MIT © Laurent BASSIN & Maxime MARQUET
