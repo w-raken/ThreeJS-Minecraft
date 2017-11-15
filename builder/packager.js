@@ -54,7 +54,7 @@ switch (process.env.NODE_OS) {
 	case "win":
         if (fs.existsSync('./win_packager')) {
             console.log('Removing existing ./win_packager...');
-            execSync("del /s /q linux_packager && rmdir /s /q linux_packager", { maxBuffer: 1024 * 2048 });
+            execSync("del /s /q win_packager && rmdir /s /q win_packager", { maxBuffer: 1024 * 2048 });
             console.log('Successfully removed ./win_packager/');
         }
 		console.log('Creating windows packager...');
