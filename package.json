@@ -20,7 +20,7 @@
 	"license": "MIT",
 	"main": "dist/electron.js",
 	"scripts": {
-		"dev": "webpack && cross-env NODE_ENV=dev webpack-dev-server --port=4200",
+		"dev": "tsc electron.ts --outDir ./dist && cross-env NODE_ENV=dev webpack-dev-server --port=4200",
 		"prod": "webpack && electron .",
 		"packager:win": "cross-env NODE_OS=win node builder/packager.js",
 		"packager:mac": "cross-env NODE_OS=mac node builder/packager.js",
