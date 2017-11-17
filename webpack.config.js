@@ -8,7 +8,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // Html-webpack-plugin configuration
 const indexConfig = {
-    template: './app/index.hbs',
+    template: './src/index.hbs',
     excludeChunks: ['electron'],
     chunksSortMode: (chunk1, chunk2) => {
         // Set the order of files injected (dependencies before app)
@@ -42,7 +42,7 @@ let webpackConfig = {
         'electron': './electron', // Electron entry point
         'corejs': 'core-js/client/shim', // Angular dependency
         'zonejs': 'zone.js/dist/zone', // Angular dependency
-        'app': './app/main.ts' // App entry point
+        'app': './src/main.ts' // App entry point
     },
     // How the different types of modules within a project will be treated
     module: {
