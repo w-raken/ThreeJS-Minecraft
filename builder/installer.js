@@ -8,20 +8,20 @@ const fs = require('fs');
 // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md
 const spec = {
     'platform': {
-        '1': 'win32',
-        '2': 'darwin',
-        '3': 'linux'
+        'win': 'win32',
+        'mac': 'darwin',
+        'linux': 'linux'
     },
     'arch': {
-        '1': 'ia32',
-        '2': 'x64',
-        '3': 'armv7l',
-        '4': 'arm64'
+        '32': 'ia32',
+        '64': 'x64',
+        '7l': 'armv7l',
+        'arm': 'arm64'
     }
 };
 
 const linuxConfig = {
-    src: "./linux_packager/" + json.name + "-" + spec['platform']['3'] + "-" + spec['arch']['2'] + "/",
+    src: "./linux_packager/" + json.name + "-" + spec['platform']['linux'] + "-" + spec['arch']['64'] + "/",
     arch: "amd64",
     dest: "linux_installer",
     categories: [
@@ -40,7 +40,7 @@ switch (process.env.NODE_OS) {
             console.log('Successfully removed ./mac_installer/');
         }
         console.log('Creating mac installer...');
-        exec("mkdir mac_installer && electron-installer-dmg ./mac_packager/" + json.name + "-" + spec['platform']['2'] + "-" + spec['arch']['2'] + "/" + json.name + ".app " + json.name + " --out=mac_installer --overwrite && rm -rf mac_packager", (error) => {
+        exec("mkdir mac_installer && electron-installer-dmg ./mac_packager/" + json.name + "-" + spec['platform']['mac'] + "-" + spec['arch']['64'] + "/" + json.name + ".app " + json.name + " --out=mac_installer --overwrite && rm -rf mac_packager", (error) => {
             if (!error) {
                 console.log('Removing mac_packager...');
                 console.log('Successfully created installer at ./mac_installer/');
@@ -74,7 +74,7 @@ switch (process.env.NODE_OS) {
         const electronInstaller = require('electron-winstaller');
 
         let settings = {
-            appDirectory: path.join(path.join((path.join('./'), 'win_packager'), json.name + "-" + spec['platform']['1'] + "-" + spec['arch']['2'] + '/')),
+            appDirectory: path.join(path.join((path.join('./'), 'win_packager'), json.name + "-" + spec['platform']['win'] + "-" + spec['arch']['64'] + '/')),
             outputDirectory: path.join(path.join('./'), 'win_installer'),
             authors: '',
             exe: json.name + '.exe',
