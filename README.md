@@ -78,8 +78,6 @@ npm install
 ## <a name="skeleton"></a>Skeleton
 ```
 electron-angular-webpack/
- ├──src/                           # angular app folder
- │
  ├──builder/                       # packagers and installers config folder
  │   ├──icons/                     # multi os app icons
  │   │   ├──linux/                 # app icon folder for linux
@@ -92,6 +90,8 @@ electron-angular-webpack/
  │   ├──installer.js               ~ config file for installers
  │   │
  │   └──packager.js                ~ config file for packagers
+ │
+ ├──src/                           # angular app folder
  │
  ├──.gitignore                     ~ untracked files to ignore
  ├──LICENSE.md                     ~ license of this project
