@@ -1,9 +1,9 @@
 const dev = process.env.NODE_ENV === "dev";
 const path = require('path');
-const webpack = require('webpack');
-const htmlWebpackPlugin = require('html-webpack-plugin');
+const Webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const exec = require('child_process').exec;
-const uglifyJs = require('uglifyjs-webpack-plugin');
+const UglifyJs = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 // Html-webpack-plugin configuration
@@ -137,15 +137,15 @@ let webpackConfig = {
     },
     // Customize the webpack build process with additionals plugins
     plugins: [
-        new htmlWebpackPlugin(indexConfig),
-        new webpack.ContextReplacementPlugin(/angular([\\\/])core([\\\/])/, path.resolve(__dirname, './src')),
+        new HtmlWebpackPlugin(indexConfig),
+        new Webpack.ContextReplacementPlugin(/angular([\\\/])core([\\\/])/, path.resolve(__dirname, './src')),
     ],
 };
 
 // UglifyJs and clean output folder only for prod
 if (!dev) {
     webpackConfig.plugins.push(new CleanWebpackPlugin(pathsToClean));
-    webpackConfig.plugins.push(new uglifyJs());
+    webpackConfig.plugins.push(new UglifyJs());
 }
 
 // Export the config
