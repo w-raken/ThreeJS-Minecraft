@@ -10,6 +10,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const indexConfig = {
     template: './src/index.hbs',
     excludeChunks: ['electron'],
+    baseHref: dev ? '/' : './',
     chunksSortMode: (chunk1, chunk2) => {
         // Set the order of files injected (dependencies before app)
         // https://github.com/jantimon/html-webpack-plugin/issues/481
@@ -107,9 +108,9 @@ let webpackConfig = {
                 test: /\.hbs$/,
                 exclude: /node_modules/,
                 use: {
-                    loader: 'html-loader',
-                    options: {
-                        attrs: ['img:src', 'link:href']
+                    loader: 'underscore-template-loader',
+                    query: {
+                        attributes: ['img:src', 'link:href']
                     }
                 }
             }
