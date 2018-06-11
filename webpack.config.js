@@ -43,7 +43,8 @@ let webpackConfig = {
         'electron': './electron', // Electron entry point
         'corejs': 'core-js/client/shim', // Angular dependency
         'zonejs': 'zone.js/dist/zone', // Angular dependency
-        'app': './src/main.ts' // App entry point
+        'app': './src/main.ts', // App entry point
+        //'three': './src/assets/js/main.js' // Three entry point
     },
     // How the different types of modules within a project will be treated
     module: {
