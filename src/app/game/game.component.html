@@ -1,1 +1,18 @@
-<div #rendererContainer (mousemove)="onMouseMove($event)"></div>
+<div id="loader">
+    <div>
+        <span>Loading world</span>
+        <br>
+        <span class="generation">Generating {{ cubeNumber }} on {{ cubeTotal }} cubes</span>
+        <br>
+        <span id="bar">
+            <span id="fill-bar"></span>
+        </span>
+    </div>
+</div>
+
+<div id="render"
+    #rendererContainer
+    (click)="onCLick()"
+    (keyup)="onKeyUp($event)"
+    (keydown)="onKeyDown($event)">
+</div>

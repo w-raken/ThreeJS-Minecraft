@@ -1,6 +1,51 @@
-div, canvas {
+#loader {
+    position: absolute;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../../assets/images/dirt.png');
+
+    div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: white;
+        font-family: Minecraftia;
+        font-size: 25px;
+
+        .generation {
+            margin-top: 10px;
+        }
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    #bar {
+        margin-top: 20px;
+        width: 400px;
+        height: 20px;
+        border: 1px solid grey;
+        position: relative;
+
+        #fill-bar {
+            height: 20px;
+            background: grey;
+            position: absolute;
+            left: 0;
+        }
+    }
+}
+
+#render {
     width: 100vw;
     height: 100vh;
     display: block;
     margin: auto;
+    padding: 0;
+    font-size: 0;
 }

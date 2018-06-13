@@ -11,10 +11,6 @@ export class AppComponent implements OnInit {
     constructor(private router: Router) { }
 
     ngOnInit() {
-        console.log('redirecting ...');
-        setTimeout((router: Router) => {
-            console.log('redirect');
-            this.router.navigate(['/home']);
-        }, 2000);
+        this.router.navigate(['/home']);
     }
 }
