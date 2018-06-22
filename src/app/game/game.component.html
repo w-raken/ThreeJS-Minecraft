@@ -10,9 +10,47 @@
     </div>
 </div>
 
+<div id="menu" class="menu">
+    <button class="btn-minecraft">Back to game</button>
+</div>
+
+<div class="cross">
+    +
+</div>
+
+<div class="ui">
+    <div class="life">
+        <span class="hearth" id="1"></span>
+        <span class="hearth" id="2"></span>
+        <span class="hearth" id="3"></span>
+        <span class="hearth" id="4"></span>
+        <span class="hearth" id="5"></span>
+        <span class="hearth" id="6"></span>
+        <span class="hearth" id="7"></span>
+        <span class="hearth" id="8"></span>
+        <span class="hearth" id="8"></span>
+        <span class="hearth" id="9"></span>
+        <span class="hearth" id="10"></span>
+    </div>
+    <div class="items">
+        <span [ngClass]="{active: selectedItem == 1}" class="item" id="1">
+            <img src="../../../src/assets/images/axe-icon.png">
+        </span>
+        <span [ngClass]="{active: selectedItem == 2}" class="item" id="2">
+            <img src="../../../src/assets/images/dirt-icon.png">
+        </span>
+        <span class="item" id="3"></span>
+        <span class="item" id="4"></span>
+        <span class="item" id="5"></span>
+        <span class="item" id="6"></span>
+        <span class="item" id="7"></span>
+        <span class="item" id="8"></span>
+        <span class="item" id="9"></span>
+    </div>
+</div>
+
 <div id="render"
     #rendererContainer
-    (click)="onCLick()"
     (keyup)="onKeyUp($event)"
     (keydown)="onKeyDown($event)">
 </div>

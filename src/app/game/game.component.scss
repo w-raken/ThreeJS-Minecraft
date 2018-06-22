@@ -3,7 +3,7 @@
     z-index: 1000;
     width: 100vw;
     height: 100vh;
-    background-image: url('../../assets/images/dirt.png');
+    background-image: url('../../assets/images/dirt-wallpaper.png');
 
     div {
         position: absolute;
@@ -37,6 +37,97 @@
             background: grey;
             position: absolute;
             left: 0;
+        }
+    }
+}
+
+.menu {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: none;
+
+    .btn-minecraft {
+        border-style: solid;
+        border-width: 2px;
+        border-color: rgba(0, 0, 0, 0.59);
+        color: white;
+        background: url('http://1.bp.blogspot.com/-LcYCcZ6U57Q/T6AuQSFOAqI/AAAAAAAABO8/86ZNnx6PbvY/s1600/minecraft_stone.jpg') repeat;
+        background-size: 20%;
+        font-family: Minecraftia;
+        font-size: 15px;
+        width: 250px;
+        margin-bottom: 5px;
+        top: 50%; 
+        position: absolute; 
+        left: 50%; 
+        transform: translate(-50%,-50%);
+    }
+
+    .btn-minecraft:hover {
+        color: yellow;
+        background: rgb(128, 128, 128);
+        cursor: pointer;
+    }
+}
+
+.cross {
+    position: absolute;
+    color: #d2d2d2;
+    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ui {
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 200px;
+    text-align: -webkit-center;
+
+    .life {
+        width: 220px;
+        height: 20px;
+        position: absolute;
+        bottom: 80px;
+        left: calc(50% - 225px);
+
+        .hearth {
+            background-image: url("../../../src/assets/images/hearth.png");
+            background-size: contain;
+            width: 20px;
+            height: 20px;
+            display: block;
+            float: left;
+        }
+    }
+
+    .items {
+        width: 450px;
+        height: 50px;
+        position: absolute;
+        bottom: 20px;
+        left: calc(50% - 225px);
+        background: rgba(0, 0, 0, 0.3);
+
+        .item {
+            width: 40px;
+            height: 40px;
+            border: 5px ridge grey;
+            display: block;
+            float: left;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .active {
+            border: 5px ridge #bdbdbd;
         }
     }
 }
