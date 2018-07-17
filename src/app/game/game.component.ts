@@ -5,6 +5,7 @@ const ObjLoader = require('three-obj-loader')(THREE);
 const MTLLoader = require('three-mtl-loader');
 
 import * as STATS from 'stats-js';
+import { ThrowStmt } from '../../../node_modules/@angular/compiler';
 
 @Component({
     selector: 'game',
@@ -23,6 +24,7 @@ export class GameComponent implements OnInit {
     private dirtTexture: THREE.TextureLoader = new THREE.TextureLoader().load( "../../../src/assets/images/dirt_cube.png" );
     private grassTexture: THREE.TextureLoader = new THREE.TextureLoader().load( "../../../src/assets/images/grass_cube.png" );
     private raycaster: THREE.Raycaster = new THREE.Raycaster();
+    private raycasterCollision: THREE.Raycaster = new THREE.Raycaster( new THREE.Vector3(), new THREE.Vector3( 0, - 1, 0 ), 0, 10 );
 
     private object: THREE.OBJLoader = new THREE.OBJLoader();
     private mtl: THREE.MTLLoader = new MTLLoader();
@@ -35,6 +37,8 @@ export class GameComponent implements OnInit {
         y: 5,
         z: 50
     }
+    private delta: number;
+    private onObject: boolean = false;
     private selectedItem: number = 1;
     private cubeNumber: number = 0;
     private cubeTotal: number = this.world.x * this.world.z;
@@ -143,25 +147,31 @@ export class GameComponent implements OnInit {
         window.requestAnimationFrame( () => this.animate() );
 
         if ( this.controls && this.worldFinishGenerating ) {
-            let delta = this.clock.getDelta();
+
+            this.delta = this.clock.getDelta();
     
             if ( this.state.forward ) {
-                this.controls.getObject().translateZ( -delta * this.speed );
+                this.controls.getObject().translateZ( -this.delta * this.speed );
             }
             if ( this.state.backward ) {
-                this.controls.getObject().translateZ( delta * this.speed );
+                this.controls.getObject().translateZ( this.delta * this.speed );
             }
             if ( this.state.left ) {
-                this.controls.getObject().translateX( -delta * this.speed );
+                this.controls.getObject().translateX( -this.delta * this.speed );
             }
             if ( this.state.right ) {
-                this.controls.getObject().translateX( delta * this.speed );
+                this.controls.getObject().translateX( this.delta * this.speed );
             }
-            if ( this.state.jump ) {
-                this.velocity.y -= 9.8 * 100 * delta;
-                this.controls.getObject().translateY(this.velocity.y * delta);
+
+            this.velocity.y -= 9.8 * 100 * this.delta;
+
+            if ( this.onObject ) {
+                this.velocity.y = Math.max( 0, this.velocity.y );
+                this.state.jump = true;
             }
-    
+
+            this.controls.getObject().translateY(this.velocity.y * this.delta);
+
             if ( this.controls.getObject().position.y < this.cubeSize * 2 ) {
                 this.velocity.y = 0;
                 this.controls.getObject().position.y = this.cubeSize * 2;
@@ -169,8 +179,6 @@ export class GameComponent implements OnInit {
             }
 
             this.updateRaycaster();
-
-            console.log( this.currentFace );
               
             this.renderer.render( this.scene, this.camera ); 
         }
@@ -324,6 +332,13 @@ export class GameComponent implements OnInit {
 
         this.intersects = this.raycaster.intersectObjects( this.scene.children );
 
+        this.raycasterCollision.ray.origin.copy( this.controls.getObject().position );
+        this.raycasterCollision.ray.origin.y -= this.cubeSize;
+
+        var objectCollision = this.raycasterCollision.intersectObjects( this.scene.children );
+
+        this.onObject = objectCollision.length > 0;
+
         if ( this.intersects.length > 0 ) {
             if (this.currentTarget.uuid != this.intersects[ 0 ].object.uuid) {
                 this.currentTarget.material.forEach( element => {
@@ -436,9 +451,11 @@ export class GameComponent implements OnInit {
                 case 68:
                     this.state.right = true;
                     break;
-                case 32:
-                    this.state.jump = true;
-                    this.velocity.y += 350;
+                case 32:                    
+                    if (this.state.jump) {
+                        this.velocity.y += 350;
+                    }
+                    this.state.jump = false;
                     break;
                 case 27:
                     document.getElementById('menu').style.display = 'block';
